@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Namura - Sushi Premium Khas Jepang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        :root {
+            --primary-red: #D7003A; /* Merah Jepang */
+            --secondary-red: #B11B34;
+            --gold: #C5A572;
+            --black: #1A1A1A;
+            --dark-gray: #2D2D2D;
+            --medium-gray: #5A5A5A;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--black);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 4px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(30px);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 30px auto 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-red);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(215, 0, 58, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-red);
+            color: var(--primary-red);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+        }
+
+        .btn-gold:hover {
+            background-color: #b8945e;
+            box-shadow: 0 15px 25px rgba(197, 165, 114, 0.3);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        /* Header & Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo span:first-child {
+            color: var(--primary-red);
+        }
+
+        .logo span:last-child {
+            color: var(--gold);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            margin-right: 10px;
+            color: var(--primary-red);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            margin-left: 40px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--white);
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            background-color: var(--light-gray);
+        }
+
+        .menu-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: transparent;
+            border: 2px solid var(--primary-red);
+            border-radius: 30px;
+            color: var(--primary-red);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(215, 0, 58, 0.2);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-card:hover .menu-img::after {
+            opacity: 1;
+        }
+
+        .menu-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .menu-card:hover .menu-img img {
+            transform: scale(1.1);
+        }
+
+        .menu-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .menu-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .menu-info {
+            padding: 25px;
+        }
+
+        .menu-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .menu-info p {
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .menu-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .menu-order {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-red);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .menu-order:hover {
+            background-color: var(--secondary-red);
+            transform: rotate(90deg);
+        }
+
+        /* Promo Section */
+        .promo-section {
+            background-color: var(--white);
+        }
+
+        .promo-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .promo-card {
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            border-radius: 12px;
+            padding: 40px 30px;
+            color: var(--white);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .promo-card:nth-child(2) {
+            background: linear-gradient(135deg, var(--gold), #d4b483);
+        }
+
+        .promo-card:nth-child(3) {
+            background: linear-gradient(135deg, var(--black), var(--dark-gray));
+        }
+
+        .promo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .promo-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+        }
+
+        .promo-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .promo-card p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .promo-tag {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-red);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .promo-card:nth-child(2) .promo-tag {
+            color: var(--gold);
+        }
+
+        .promo-card:nth-child(3) .promo-tag {
+            color: var(--black);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--light-gray);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--medium-gray);
+        }
+
+        .about-features {
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+        }
+
+        .feature-text h4 {
+            margin-bottom: 5px;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d7003a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .testimonial-card.active {
+            display: block;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 25px;
+            border: 3px solid var(--primary-red);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-rating {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--medium-gray);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 15px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary-red);
+            transform: scale(1.2);
+        }
+
+        .slider-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            cursor: pointer;
+            margin: 0 20px;
+            transition: var(--transition);
+        }
+
+        .slider-btn:hover {
+            color: var(--secondary-red);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--light-gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            margin: 0;
+            color: var(--medium-gray);
+        }
+
+        .map-container {
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+
+        .footer-logo {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo span:first-child {
+            color: var(--primary-red);
+        }
+
+        .footer-logo span:last-child {
+            color: var(--gold);
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            margin-right: 10px;
+            color: var(--primary-red);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: rgba(26, 26, 26, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.5s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 0 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                margin-bottom: 15px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                min-height: 700px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .menu-filter {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+
+            .filter-btn {
+                white-space: nowrap;
+            }
+
+            .promo-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-fish logo-icon"></i>
+                    <span>Sushi</span> Namura
+                </a>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#promo">Promo</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#testimonial">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" data-aos="fade-up">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nikmati Sensasi <span>Sushi Premium</span> Khas Jepang</h1>
+                <p>Rasakan keautentikan sushi dengan bahan-bahan segar pilihan, dibuat langsung oleh koki profesional kami dengan sentuhan modern Jepang.</p>
+                <div class="hero-btns">
+                    <a href="#menu" class="btn"><i class="fas fa-utensils"></i> Lihat Menu</a>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Sushi%20Namura,%20saya%20ingin%20memesan%20sushi" class="btn btn-outline" target="_blank"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Favorit</h2>
+                <p>Pilihan terbaik dari menu Sushi Namura yang paling disukai pelanggan kami</p>
+            </div>
+            
+            <div class="menu-filter">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="sushi">Sushi</button>
+                <button class="filter-btn" data-filter="roll">Roll</button>
+                <button class="filter-btn" data-filter="sashimi">Sashimi</button>
+                <button class="filter-btn" data-filter="special">Spesial</button>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-card" data-category="sushi">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="Salmon Sushi">
+                        <div class="menu-badge">Terlaris</div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>Salmon Sushi</h3>
+                        <p>Potongan salmon segar di atas nasi sushi dengan saus khusus Namura, memberikan rasa gurih yang sempurna.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 45.000</span>
+                            <div class="menu-order">
+                                <i class="fas fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 2 -->
+                <div class="menu-card" data-category="roll">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1617196034183-421b4917c92d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="Dragon Roll">
+                    </div>
+                    <div class="menu-info">
+                        <h3>Dragon Roll</h3>
+                        <p>Roll dengan isian udang tempura dan alpukat, dilapisi irisan alpukat dan saus eel khusus.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 75.000</span>
+                            <div class="menu-order">
+                                <i class="fas fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 3 -->
+                <div class="menu-card" data-category="sashimi">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1579584425523-1c5de0c4c8c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="Tuna Sashimi">
+                    </div>
+                    <div class="menu-info">
+                        <h3>Tuna Sashimi</h3>
+                        <p>Irisan tipis tuna segar berkualitas tinggi, disajikan dengan wasabi dan kecap asin Jepang asli.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 85.000</span>
+                            <div class="menu-order">
+                                <i class="fas fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 4 -->
+                <div class="menu-card" data-category="roll">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="Chicken Katsu Roll">
+                    </div>
+                    <div class="menu-info">
+                        <h3>Chicken Katsu Roll</h3>
+                        <p>Roll dengan isian ayam katsu renyah, selada, dan saus mayones khusus, cocok untuk pemula.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 55.000</span>
+                            <div class="menu-order">
+                                <i class="fas fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 5 -->
+                <div class="menu-card" data-category="special">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1563612116-121e8d9e8b2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="Rainbow Roll">
+                    </div>
+                    <div class="menu-info">
+                        <h3>Rainbow Roll</h3>
+                        <p>Roll spesial dengan beragam ikan segar di atasnya, menciptakan tampilan warna-warni seperti pelangi.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 95.000</span>
+                            <div class="menu-order">
+                                <i class="fas fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 6 -->
+                <div class="menu-card" data-category="sushi">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="Unagi Sushi">
+                    </div>
+                    <div class="menu-info">
+                        <h3>Unagi Sushi</h3>
+                        <p>Sushi dengan irisan belut panggang yang lembut dan manis, disajikan dengan saus unagi khas.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 65.000</span>
+                            <div class="menu-order">
+                                <i class="fas fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="promo-section" id="promo" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Promo Spesial</h2>
+                <p>Manfaatkan penawaran menarik dari Sushi Namura untuk pengalaman sushi yang lebih berkesan</p>
+            </div>
+            
+            <div class="promo-container">
+                <div class="promo-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="promo-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Diskon 20%</h3>
+                    <p>Dapatkan diskon 20% untuk semua menu sushi setiap hari Senin - Jumat pukul 14:00 - 17:00.</p>
+                    <div class="promo-tag">DISKON 20%</div>
+                </div>
+                
+                <div class="promo-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="promo-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Paket Hemat Keluarga</h3>
+                    <p>Nikmati paket keluarga untuk 4 orang dengan harga spesial. Cocok untuk makan bersama keluarga.</p>
+                    <div class="promo-tag">PAKET KELUARGA</div>
+                </div>
+                
+                <div class="promo-card" data-aos="fade-left" data-aos-delay="300">
+                    <div class="promo-icon">
+                        <i class="fas fa-calendar-weekend"></i>
+                    </div>
+                    <h3>Promo Weekend</h3>
+                    <p>Setiap akhir pekan, dapatkan gratis 1 minuman Jepang untuk setiap pembelian di atas Rp 200.000.</p>
+                    <div class="promo-tag">WEEKEND DEAL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Sushi Namura</h2>
+                <p>Mengenal lebih dekat filosofi dan keunggulan restoran kami</p>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="Interior Sushi Namura">
+                </div>
+                
+                <div class="about-content">
+                    <h2>Kelezatan Autentik dengan Sentuhan Modern</h2>
+                    <p>Sushi Namura didirikan pada tahun 2018 dengan misi menghadirkan sushi premium khas Jepang dengan bahan-bahan segar pilihan. Kami menggabungkan teknik tradisional Jepang dengan sentuhan modern untuk menciptakan pengalaman kuliner yang unik.</p>
+                    <p>Setiap hidangan kami dibuat dengan teliti oleh koki profesional yang telah menempuh pelatihan di Jepang. Kami hanya menggunakan bahan-bahan berkualitas tinggi yang diimpor langsung dari sumber terpercaya.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Bahan Segar Premium</h4>
+                                <p>Ikan dan seafood kami dipilih dengan ketat dan selalu dalam kondisi terbaik.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-chef"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Koki Profesional</h4>
+                                <p>Koki kami berpengalaman dan telah menempuh pelatihan khusus di Jepang.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Halal & Higienis</h4>
+                                <p>Semua bahan dan proses pengolahan kami menjamin kehalalan dan higienitas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section" id="testimonial" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Pelanggan</h2>
+                <p>Apa kata mereka tentang pengalaman menikmati sushi di restoran kami</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card active">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer Avatar">
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Sushi terlezat yang pernah saya coba! Salmonnya sangat segar dan tekstur nasinya sempurna. Pelayanannya juga sangat ramah dan profesional. Pasti akan kembali lagi!"</p>
+                    <p class="testimonial-author">- Sarah Wijaya</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Customer Avatar">
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"Atmosfer restoran yang elegan dan nyaman. Dragon Roll-nya luar biasa! Saus eel-nya memberikan sentuhan manis yang sempurna. Highly recommended untuk pecinta sushi!"</p>
+                    <p class="testimonial-author">- Andre Gunawan</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Customer Avatar">
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Paket keluarga yang worth it! Anak-anak sangat menyukai Chicken Katsu Roll. Bahan-bahannya segar dan penyajiannya sangat menarik. Suasana restoran juga sangat Instagramable!"</p>
+                    <p class="testimonial-author">- Dian Permata</p>
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots">
+                    <span class="slider-dot active" data-index="0"></span>
+                    <span class="slider-dot" data-index="1"></span>
+                    <span class="slider-dot" data-index="2"></span>
+                </div>
+                <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontak & Lokasi</h2>
+                <p>Kunjungi restoran kami atau pesan melalui layanan delivery</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Hubungi Kami</h3>
+                    <p>Kami siap melayani Anda dengan sepenuh hati. Silakan hubungi kami untuk reservasi, pemesanan, atau pertanyaan lainnya.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Alamat Restoran</h4>
+                                <p>Jl. Sushi Raya No. 88, Kelapa Gading, Jakarta Utara 14250</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telepon & WhatsApp</h4>
+                                <p>+62 812-3456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Jam Operasional</h4>
+                                <p>Setiap Hari: 11:00 - 22:00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/6281234567890?text=Halo%20Sushi%20Namura,%20saya%20ingin%20bertanya%20tentang%20menu%20dan%20reservasi" class="btn btn-gold" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                    </a>
+                </div>
+                
+                <div class="map-container">
+                    <!-- Google Maps Embed -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.857826419417!2d106.6603913!3d-6.5867688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69db21f5954f9f%3A0x6289fc22f0128de7!2sSushi%20Namura%20Cibatok!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span>Sushi</span> Namura
+                    </div>
+                    <p>Restoran sushi premium dengan konsep modern Jepang, menghadirkan keautentikan rasa dengan sentuhan kontemporer.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Menu Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#menu"><i class="fas fa-chevron-right"></i> Menu</a></li>
+                        <li><a href="#promo"><i class="fas fa-chevron-right"></i> Promo</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Tentang</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Reservasi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Catering</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Private Event</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cooking Class</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Sushi Raya No. 88, Jakarta Utara</a></li>
+                        <li><a href="tel:+6281234567890"><i class="fas fa-phone-alt"></i> +62 812-3456-7890</a></li>
+                        <li><a href="mailto:info@sushinamura.com"><i class="fas fa-envelope"></i> info@sushinamura.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Buka Setiap Hari 12:00 - 21:00</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sushi Namura. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary-red);"></i> for sushi lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menu Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const menuCards = document.querySelectorAll('.menu-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(button => button.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                menuCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 200);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Add to cart button functionality
+        const addToCartButtons = document.querySelectorAll('.menu-order');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productName = this.closest('.menu-card').querySelector('h3').textContent;
+                const productPrice = this.closest('.menu-card').querySelector('.price').textContent;
+                
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.7);
+                    transform: scale(0);
+                    animation: ripple-animation 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    top: ${y}px;
+                    left: ${x}px;
+                `;
+                
+                this.appendChild(ripple);
+                
+                // Show notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background-color: var(--primary-red);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    box-shadow: var(--shadow);
+                    z-index: 9999;
+                    transform: translateX(150%);
+                    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+                    display: flex;
+                    align-items: center;
+                    max-width: 350px;
+                `;
+                notification.innerHTML = `
+                    <i class="fas fa-check-circle" style="font-size: 1.5rem; margin-right: 15px;"></i>
+                    <div>
+                        <strong>${productName}</strong> telah ditambahkan ke keranjang<br>
+                        <small>${productPrice}</small>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Animate notification in
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Animate notification out after 3 seconds
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(150%)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 500);
+                }, 3000);
+                
+                // Remove ripple after animation
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+                
+                // Add animation to button
+                this.innerHTML = '<i class="fas fa-check"></i>';
+                this.style.backgroundColor = '#28a745';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-cart-plus"></i>';
+                    this.style.backgroundColor = '';
+                }, 1500);
+            });
+        });
+
+        // Testimonial Slider
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            // Hide all slides
+            testimonialCards.forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Remove active class from all dots
+            sliderDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show current slide and activate corresponding dot
+            testimonialCards[index].classList.add('active');
+            sliderDots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        // Next slide
+        nextBtn.addEventListener('click', () => {
+            let nextIndex = currentSlide + 1;
+            if (nextIndex >= testimonialCards.length) {
+                nextIndex = 0;
+            }
+            showSlide(nextIndex);
+        });
+
+        // Previous slide
+        prevBtn.addEventListener('click', () => {
+            let prevIndex = currentSlide - 1;
+            if (prevIndex < 0) {
+                prevIndex = testimonialCards.length - 1;
+            }
+            showSlide(prevIndex);
+        });
+
+        // Dot click
+        sliderDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                showSlide(index);
+            });
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            let nextIndex = currentSlide + 1;
+            if (nextIndex >= testimonialCards.length) {
+                nextIndex = 0;
+            }
+            showSlide(nextIndex);
+        }, 5000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
